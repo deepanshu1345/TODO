@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Task Manager</title>
+</head>
+<body>
+<header>
+    <h1>Task Manager</h1>
+    <h4>Login as {{user}}</h4>
+    <a href="/logout" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+</header>
+<div class="container">
+    <div class="forms">
+        <form action="/add" method="POST">
+            <input name="task" placeholder="Enter a new task" required type="text">
+            <button type="submit">Add Task</button>
+        </form>
+    </div>
+    <h2>Task List</h2>
+    <ol class="task-list">
+        {% for task in tasks %}
+        <li class="task-item">
+            <div class="task-number">{{ loop.index }}.</div>
+            <span class="task-text">{{ task.task }}</span>
+            <div class="btn-group">
+                <button type="button" class="edit-btn"
+                        onclick="openPopup('{{ task._id }}', '{{ task.task }}', '{{ task.description | default('') }}')">
+                    <i class="fas fa-pencil-alt"></i>
+                </button>
+                <a href="/del/{{ task._id }}">
+                    <button type="button"><i class="fas fa-trash-alt"></i></button>
+                </a>
+            </div>
+        </li>
+        {% endfor %}
+    </ol>
+</div>
+
+<!-- Popup for Task Update -->
+<div id="popup" class="popup-overlay">
+    <div class="popup-content">
+        <h3>Update Task</h3>
+        <form id="update-form" method="POST">
+            <input type="hidden" id="task-id" name="task_id">
+            <input type="text" id="task-text" name="task" placeholder="Task Title" required>
+<!--            <input type="text" id="task-desc" name="desc" placeholder="Task Description">-->
+            <div class="popup-buttons">
+                <button type="submit" class="confirm-btn"><i class="fas fa-check"></i></button>
+                <button type="button" class="cancel-btn" onclick="closePopup()"><i class="fas fa-times"></i></button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function openPopup(taskId, taskText, taskDesc) {
+        // Display the popup
+        document.getElementById('popup').style.display = 'flex';
+
+        // Populate the form fields with the task data
+        document.getElementById('task-id').value = taskId;
+        document.getElementById('task-text').value = taskText;
+<!--        document.getElementById('task-desc').value = taskDesc;-->
+
+        // Set the form action dynamically
+        document.getElementById('update-form').action = `/edit/${taskId}`;
+    }
+
+    function closePopup() {
+        // Hide the popup
+        document.getElementById('popup').style.display = 'none';
+    }
+</script>
+</body>
+</html>

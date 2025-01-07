@@ -1,0 +1,209 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styling */
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Main Container Styling */
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Task List Container */
+.task-list-container {
+    margin-top: 20px;
+}
+
+/* Task List Styling */
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #fafafa;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.task-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* Task Text Styling */
+.task-text {
+    font-size: 16px;
+    color: #333;
+    flex-grow: 1;
+}
+
+.task-number {
+    font-weight: bold;
+    color: #555;
+    margin-right: 10px;
+}
+
+/* Buttons (Edit and Delete) Styling */
+.btn-group {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.edit-btn {
+    background-color: #ff9800;
+}
+
+.edit-btn:hover {
+    background-color: #e68900;
+}
+
+.delete-btn {
+    background-color: #f44336;
+}
+
+.delete-btn:hover {
+    background-color: #e02c2c;
+}
+
+/* Task Buttons in Popup */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.popup-buttons button {
+    margin: 5px;
+}
+
+/* Forms Styling (for both Login and Task Manager) */
+.forms form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Input Fields Styling */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 10px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Labels Styling */
+label {
+    align-self: flex-start;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Button Styling */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    background-color: #007bff;
+    font-size: 16px;
+    width: 80%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Switch Between Login and Signup */
+.switch-form {
+    text-align: center;
+    margin-top: 15px;
+    color: #333;
+}
+
+.switch-form a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.switch-form a:hover {
+    text-decoration: underline;
+}
+
+
+.logout-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #f44336;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logout-btn i {
+    font-size: 18px;
+}
+
+.logout-btn:hover {
+    background-color: #e02c2c;

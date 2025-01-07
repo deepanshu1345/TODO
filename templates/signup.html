@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="{{ url_for('static', filename='css/login-signup.css') }}" rel="stylesheet">
+    <title>Sign Up - Task Manager</title>
+</head>
+<body>
+<header>
+    <h1>Sign Up</h1>
+</header>
+<div class="container">
+
+    <div class="forms">
+        <form action="/signup" method="POST">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" required placeholder="Choose a username">
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required placeholder="Enter your email">
+
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required placeholder="Choose a password">
+
+            <label for="confirm_password">Confirm Password</label>
+            <input type="password" name="confirm_password" id="confirm_password" required placeholder="Confirm your password">
+
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+    <div class="switch-form">
+        <p>Already have an account? <a href="/">Login here</a></p>
+    </div>
+</div>
+</body>
+</html>
